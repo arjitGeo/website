@@ -2,12 +2,16 @@
 'use strict';
 import { getHtmlx } from './getHtml.js';
 
-const main = document.getElementById('main');
 
 document.addEventListener('DOMContentLoaded', () => {
+	const main = document.getElementById('main');
+	
 	getHtmlx('/html' + window.location.pathname, main);
 	
-	// const another = document.getElementById('another');
-	// console.log(another);
+	if(window.location.pathname === '/another') {
+		const another = document.getElementById('another');
+		console.log(another); // null
+		console.log(main?.childNodes); // returns child nodes
+	}
 
 }, { once: true });
