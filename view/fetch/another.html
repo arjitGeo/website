@@ -1,0 +1,11 @@
+<div id="another">This is another page</div>
+<div>Hi {{.}}</div>
+<img src onerror="
+	// @ts-check
+	'use strict';
+	const another = document.getElementById('another');
+	console.log(another);
+	if (another !== null) {
+		another.innerHTML = `<h1>${another.innerText}</h1>`;
+	}
+">

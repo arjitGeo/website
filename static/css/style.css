@@ -1,0 +1,11 @@
+body {
+  color: azure;
+  background-color: black;
+}
+
+.router {
+  user-select: none;
+  cursor: pointer;
+  color: teal;
+  text-decoration: underline;
+}
