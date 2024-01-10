@@ -19,7 +19,7 @@ const getHtmlx = (htmlPath, jsPath, target) => {
   
   xHttpReq.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   
-  xHttpReq.addEventListener('readystatechange', async function () {
+  xHttpReq.onreadystatechange = async function () {
     if (this.readyState === 4 && this.status === 200) {
       target.innerHTML = this.responseText;
       if(jsPath !== null) {
@@ -27,7 +27,7 @@ const getHtmlx = (htmlPath, jsPath, target) => {
         main();
       }
     }
-  });
+  };
   
   xHttpReq.send();
 }
