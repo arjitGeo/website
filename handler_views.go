@@ -6,7 +6,7 @@ import (
 )
 
 func handlerIndexView(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("view/fetch/index.html")
+	tmpl, err := template.ParseFiles("./view/body/index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -20,7 +20,7 @@ func handlerIndexView(w http.ResponseWriter, r *http.Request) {
 }
 
 func handlerAnotherView(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("view/fetch/another.html")
+	tmpl, err := template.ParseFiles("./view/body/another.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

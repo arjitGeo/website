@@ -23,14 +23,14 @@ func main() {
 	r.HandleFunc("/", onlyHandler).Methods(http.MethodGet)
 	r.HandleFunc("/another", onlyHandler).Methods(http.MethodGet)
 
-	s := r.PathPrefix("/html").Subrouter()
-	s.Use(ajaxOnlyMiddleware)
+	h := r.PathPrefix("/dzxzeq").Subrouter()
+	h.Use(ajaxOnlyMiddleware)
 
-	s.HandleFunc("/", handlerIndexView)
-	s.HandleFunc("/another", handlerAnotherView)
+	h.HandleFunc("/", handlerIndexView)
+	h.HandleFunc("/another", handlerAnotherView)
 
-	fs := http.FileServer(customFileServer{http.Dir("./static")})
-	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
+	fs := http.FileServer(customFileServer{http.Dir("./s")})
+	r.PathPrefix("/staitic/").Handler(http.StripPrefix("/staitic/", fs))
 
 	srv := &http.Server{
 		Handler: r,
